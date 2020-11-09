@@ -1,0 +1,81 @@
+package Homework5;
+
+import java.util.Scanner;
+import java.util.Random;
+
+public class fullpontoon 
+{ //start of class
+	public static void main(String[] args)
+	{ //start of main
+		Scanner kboard = new Scanner(System.in);
+		Random rand = new Random();
+		// declares random 
+		
+		String choice=" ";
+		int card1=0;
+		int card2=0;
+		int newcard=0;
+		int total=0;
+		
+		
+		 card1 =  rand.nextInt(10)+1;
+         card2 =  rand.nextInt(10)+1;
+         // generates random number with max value of 10 and minimum of 1(due to +1)
+					
+		total=card1+card2;
+		
+		System.out.println("your two cards are... \r" +card1+ " and " +card2);
+		System.out.print("do you wish to draw another card? (y/n)");	
+		choice=kboard.next();
+		// \r and \n take a new line while outputting information
+		
+		int count=3;
+		// declares count
+		
+		while(choice.equalsIgnoreCase("y"))
+		{
+			newcard =  rand.nextInt(10)+1;
+			 // generates random number with max value of 10 and minimum of 1(due to +1)
+			
+			total=total+newcard;
+			// stores total with new card added
+			
+			System.out.print("your new card is "+newcard);
+			System.out.print("\rtotal is "+total);
+			// \r and \n take a new line while outputting information
+					
+			if(total>21)
+			{
+				break;
+				// stops loop if total>21
+			}
+			else
+			{
+				System.out.print("\rdo you wish to draw another card? (y/n)");	
+			    choice=kboard.next();
+			    
+			    count--;
+			    // minuses 1 of count so loop can only be ran 3 times with max of 5 numbers generated in program
+			}
+			
+			if(count==0)
+			{
+				break;
+				// stops loop when count==0
+			}
+			
+			
+		}
+	
+		if(total>19 && total<=21)
+		{
+		 System.out.print("\ryou have won");	
+		}
+		else
+		{
+			System.out.print("\ryou have lost");
+		}
+		
+  } //end of main
+	
+} //end of class
